@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Arda ❤️ Tuana</title>
+<style>
+body {
+   margin: 0;
+   overflow: hidden;
+   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+   font-family: 'Segoe UI', sans-serif;
+   text-align: center;
+   color: white;
+}
+h1 {
+   margin-top: 60px;
+   font-size: 45px;
+   text-shadow: 0 0 25px rgba(255,255,255,0.9);
+}
+.names {
+   font-size: 60px;
+   margin-top: 20px;
+   animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+   from { text-shadow: 0 0 20px #fff; }
+   to { text-shadow: 0 0 40px #ff004c; }
+}
+button {
+   margin-top: 40px;
+   padding: 18px 40px;
+   font-size: 20px;
+   border: none;
+   border-radius: 50px;
+   background: white;
+   color: #ff4d6d;
+   cursor: pointer;
+   transition: 0.3s;
+   box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+button:hover {
+   transform: scale(1.1);
+   background: #ff4d6d;
+   color: white;
+}
+.flower, .heart {
+   position: absolute;
+   font-size: 30px;
+   animation: fall linear forwards;
+}
+@keyframes fall {
+   0% { transform: translateY(-50px); opacity: 1; }
+   100% { transform: translateY(100vh); opacity: 0; }
+}
+.message {
+   position: absolute;
+   width: 100%;
+   top: 55%;
+   font-size: 28px;
+   opacity: 0;
+   transition: 2s;
+   text-shadow: 0 0 20px rgba(255,255,255,0.9);
+}
+</style>
+</head>
+<body>
+<h1>Für immer zusammen 💞</h1>
+<div class="names">Arda ❤️ Tuana</div>
+<button onclick="startLove()">Klick hier mein Herz 💖</button>
+<div class="message" id="loveMessage">
+   Du bist mein Glück.  
+   Mein Lächeln.  
+   Meine Zukunft. 🌹  
+   Ich liebe dich Tuana ❤️
+</div>
+<audio id="music">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<script>
+function startLove() {
+   document.getElementById("music").play();
+   let msg = document.getElementById("loveMessage");
+   msg.style.opacity = 1;
+   for (let i = 0; i < 60; i++) {
+       createElement("🌸");
+       createElement("💖");
+   }
+}
+function createElement(symbol) {
+   let el = document.createElement("div");
+   el.className = "flower";
+   el.innerHTML = symbol;
+   el.style.left = Math.random() * window.innerWidth + "px";
+   el.style.animationDuration = (3 + Math.random() * 4) + "s";
+   document.body.appendChild(el);
+   setTimeout(() => {
+       el.remove();
+   }, 7000);
+}
+</script>
+</body>
+</html>
